@@ -46,19 +46,21 @@ button{
   justify-content: space-evenly;
 }
 
-.start-button, .reset-button, .stop-button{
+.start-button, .reset-button{
   color: white;
   font-weight: bold;
+  transition: 4;
 }
 
 .start-button{
   background-color: blue;
-}
-
-.reset-button{
-  background-color:dimgray;
+  transition: 0.15s;
 }
 
 .stop-button{
+  transition: 0.15s;
   background-color: red;
+}
+.reset-button{
+  background-color:dimgray;
 }
