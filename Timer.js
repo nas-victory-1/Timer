@@ -16,49 +16,70 @@ let secondSecondCounter = 0;
 
   const firstMinute = document.querySelector(".first-minute");
 
+  let intervalID;
+  
+
   
   
 function timerStart() {
   let toggled = startButton.classList.contains('is-toggled');
-  if(toggled){
-    startButton.innerHTML = 'Start';
-    startButton.classList.remove('stop-button');
-    startButton.classList.remove('is-toggled');
-  }else{
+  if(!toggled){
     startButton.innerHTML = 'Stop';
     startButton.classList.add('stop-button');
     startButton.classList.add('is-toggled');
-  }
-
-  setInterval(incrementer, 1000);
-
-  function incrementer() {
-
-    /*timeIncrementer(secondSecondCounter, 9, firstSecondCounter);
-    timeIncrementer(firstSecondCounter,6,secondMinuteCounter);
-    timeIncrementer(secondMinuteCounter, 10, firstMinuteCounter);*/
+    intervalID = setInterval(incrementer, 10);
     
-
-    if (secondSecondCounter >= 9) {
-      secondSecondCounter = -1;
-      firstSecondCounter++;
-
-      if (firstSecondCounter >= 6) {
-        firstSecondCounter = 0;
-        secondMinuteCounter++;
-
-        if (secondMinuteCounter >= 10) {
-          secondMinuteCounter = 0;
-          firstMinuteCounter++;
-          firstMinute.innerHTML = firstMinuteCounter;
-        }
-        secondMinute.innerHTML = secondMinuteCounter;
-      }
-      firstSecond.innerHTML = firstSecondCounter;
-    }
-
-    secondSecondCounter++;
-    secondSecond.innerHTML = secondSecondCounter;
+  }else{
+    startButton.innerHTML = 'Start';
+    startButton.classList.remove('stop-button');
+    startButton.classList.remove('is-toggled');
+    clearInterval(intervalID);
+    
   }
+
+
 }
 
+function incrementer() {
+
+  /*timeIncrementer(secondSecondCounter, 9, firstSecondCounter);
+  timeIncrementer(firstSecondCounter,6,secondMinuteCounter);
+  timeIncrementer(secondMinuteCounter, 10, firstMinuteCounter);*/
+  
+
+  if (secondSecondCounter >= 9) {
+    secondSecondCounter = -1;
+    firstSecondCounter++;
+
+    if (firstSecondCounter >= 6) {
+      firstSecondCounter = 0;
+      secondMinuteCounter++;
+
+      if (secondMinuteCounter >= 10) {
+        secondMinuteCounter = 0;
+        firstMinuteCounter++;
+        firstMinute.innerHTML = firstMinuteCounter;
+      }
+      secondMinute.innerHTML = secondMinuteCounter;
+    }
+    firstSecond.innerHTML = firstSecondCounter;
+  }
+
+  secondSecondCounter++;
+  secondSecond.innerHTML = secondSecondCounter;
+}
+
+function resetTimer(){
+  clearInterval(intervalID);
+  startButton.innerHTML = 'Start';
+  startButton.classList.remove('stop-button');
+  startButton.classList.remove('is-toggled');
+  secondSecond.innerHTML = 0;
+  secondMinute.innerHTML = 0;
+  firstMinute.innerHTML = 0;
+  firstSecond.innerHTML = 0;
+  secondMinuteCounter = 0;
+  secondSecondCounter = 0;
+  firstMinuteCounter = 0;
+  firstSecondCounter = 0;
+}
