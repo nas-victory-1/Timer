@@ -2,6 +2,8 @@ body{
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(10, 14, 17);
   color: white;
+  padding-top: 150px;
+  padding-left: 500px;
 }
 
 .timer-container{
@@ -10,16 +12,60 @@ body{
   border-radius: 350px;
   border: gray solid 20px;
   position: relative;
-  left: 500px;
-  top: 50px;
-  /* right: 400px; */
-
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  /* justify-content: center; */
+  box-sizing: border-box;
+
 }
+
+.started-timer{
+  border: none;
+}
+
+.pulsing-active{
+  animation: pulsing 2s infinite alternate;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 350px;
+  transform-origin: center;
+  box-sizing: border-box  ;
+}
+
+@keyframes pulsing {
+  0%{
+    border: #00F0FF solid 10px;
+    transform: scale(1);
+  }
+    
+  25%{
+    border: #005C99 solid 10px;
+    transform: scale(1.02);
+  }
+  
+  50%{
+    border: #00F0FF solid 10px;
+    transform: scale(1.04);
+  }
+
+  75%{
+    border: #005C99 solid 10px;
+    transform: scale(1.06);
+  }
+
+  100%{
+    border: #00F0FF solid 10px;
+    transform: scale(1.08);
+    
+  }
+}
+
+
+
+
+
+
 
 .first-minute,.first-second, .second-minute,.second-second,.colon{
   font-size: 75px;
@@ -38,9 +84,8 @@ button{
 
 .button-container{
   width: 540px;
-  position: relative;
-  left: 500px;
-  margin-top: 80px;
+  position: absolute;
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

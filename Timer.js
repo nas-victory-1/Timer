@@ -27,12 +27,17 @@ function timerStart() {
     startButton.innerHTML = 'Stop';
     startButton.classList.add('stop-button');
     startButton.classList.add('is-toggled');
-    intervalID = setInterval(incrementer, 10);
+    document.querySelector('.timer-container').classList.add('started-timer');
+    document.querySelector('.pulsing').classList.add('pulsing-active');
+    intervalID = setInterval(incrementer, 100);
     
   }else{
     startButton.innerHTML = 'Start';
     startButton.classList.remove('stop-button');
     startButton.classList.remove('is-toggled');
+    document.querySelector('.timer-container').classList.remove('started-timer');
+    document.querySelector('.pulsing').classList.remove('pulsing-active');
+
     clearInterval(intervalID);
     
   }
@@ -74,6 +79,8 @@ function resetTimer(){
   startButton.innerHTML = 'Start';
   startButton.classList.remove('stop-button');
   startButton.classList.remove('is-toggled');
+  document.querySelector('.timer-container').classList.remove('started-timer');
+  document.querySelector('.pulsing').classList.remove('pulsing-active');
   secondSecond.innerHTML = 0;
   secondMinute.innerHTML = 0;
   firstMinute.innerHTML = 0;

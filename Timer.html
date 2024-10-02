@@ -7,20 +7,26 @@
   <link rel="stylesheet" href="Timer.css">
 </head>
 <body>
-  <div class="timer-container"> 
-      <p class="first-minute">0</p>
-      <p class="second-minute">0</p>
-      <p class="colon">:</p>
-      <p class="first-second">0</p>
-      <p class="second-second">0</p>
-  </div>
-    
-  <div class="button-container">
-    <BUTton class="start-button" onclick="timerStart()">Start</BUTton>
-    <!-- <button class="stop-button">Stop</button> -->
-    <button class="reset-button" onclick="resetTimer()">Reset</button>
-  </div>
+  <!-- <div class="relative-container"></div> -->
 
+  
+  <div class="pulsing"></div>
+    <div class="timer-container"> 
+        <p class="first-minute">0</p>
+        <p class="second-minute">0</p>
+        <p class="colon">:</p>
+        <p class="first-second">0</p>
+        <p class="second-second">0</p>
+    </div>
+
+    
+    
+    <div class="button-container">
+      <button class="start-button" onclick="timerStart()">Start</button>
+      <!-- <button class="stop-button">Stop</button> -->
+      <button class="reset-button" onclick="resetTimer()">Reset</button>
+    </div>
+  
   <script src="Timer.js"></script>
 </body>
 </html>
