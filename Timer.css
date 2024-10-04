@@ -33,6 +33,10 @@ body{
   box-sizing: border-box  ;
 }
 
+.pulsing-paused{
+  animation-play-state: paused;
+}
+
 @keyframes pulsing {
   0%{
     border: #00F0FF solid 10px;
