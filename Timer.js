@@ -30,7 +30,7 @@ function timerStart() {
     document.querySelector('.timer-container').classList.add('started-timer');
     document.querySelector('.pulsing').classList.add('pulsing-active');
     playAnimation();
-    intervalID = setInterval(incrementer, 100);
+    intervalID = setInterval(incrementer, 1000);
     
   }else{
     startButton.innerHTML = 'Start';
